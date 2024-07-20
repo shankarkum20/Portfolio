@@ -1,6 +1,9 @@
 import React from 'react'
 import contact from '../assets/contact.png'
+import map from '../assets/map.jpg'
 import { IoIosSend } from "react-icons/io";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Cont = () => {
   return (
@@ -12,8 +15,8 @@ const Cont = () => {
       </div>
   </div>
   <div className='  p-5 md:px-20 '>
-    <div className='grid sm:grid-cols-1 lg:grid-cols-2 mx-auto gap-9 '  >
-      <img src={contact} className='w-full' alt="" />
+    <div className='grid sm:grid-cols-1 lg:grid-cols-2 mx-auto gap-9  '  >
+      <img src={map} className='w-full rounded-lg my-0 lg:my-20' alt="" />
       <div>
         <div className='mb-4'>
           <h1 className='font-semibold text-lg mb-2 text-white'>Full Name</h1>
@@ -27,7 +30,7 @@ const Cont = () => {
           <h1 className='font-semibold text-lg mb-2 text-white'> Message</h1>
           <textarea name="" id="" cols="30" rows='5' className='bg-[#111111] border-gray-500 w-full outline-4 text-gray-500 border p-3 text-lg font-medium rounded-lg ' placeholder='Message here...' ></textarea>
         </div>
-        <button className='bg-purple-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><IoIosSend/></span>Send message</button>
+        <button onClick={()=>toast.error('Something Went Wrong!! please send via email !')} className='bg-purple-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><IoIosSend/></span>Send message</button>
       </div>
     </div>
   </div>
