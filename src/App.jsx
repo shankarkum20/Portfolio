@@ -8,7 +8,7 @@ function App() {
  
   return (
     <>
-       <ToastContainer position='top-center'/>
+       <ToastContainer position='top-right'/>
       <Home/>
     </>
   )
