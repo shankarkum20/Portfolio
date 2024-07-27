@@ -12,7 +12,6 @@ const Cont = () => {
     email:"",
     message:""
   })
-  console.log(message)
   
 
     const onchangehandler=(e)=>{
@@ -20,13 +19,13 @@ const Cont = () => {
     }
 
     const sendmessage=async()=>{
-    let responseData
+    let responseData;
     Setsend(true)
-    await fetch("https://portfolio-backend-01ub.onrender.com/api/user/sendmessage",{
+    await fetch("http://localhost:5000/api/user/sendmessage",{
       method:"POST",
       headers:{
         Accept:"application/json",
-        
+        "Content-Type":"application/json"
       },
       body:JSON.stringify(message)
     }).then(res=>res.json())
@@ -34,7 +33,6 @@ const Cont = () => {
     if(responseData.success){
       Setsend(false)
       toast.success(responseData.msg)
-      navigateTo('/');
     }
     else{
       Setsend(false)
@@ -69,7 +67,7 @@ const Cont = () => {
           <h1 className='font-semibold text-lg mb-2 text-white'> Message</h1>
           <textarea name="message" onChange={(e)=>onchangehandler(e)} value={message.message} id="" cols="30" rows='5' className='bg-[#111111] border-gray-500 w-full outline-4 text-gray-500 border p-3 text-lg font-medium rounded-lg ' placeholder='Message here...' ></textarea>
         </div>
-        {send? <button onClick={()=>sendmessage()} className='bg-orange-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><p className='loading'></p></span>Sending message</button>: <button onClick={()=>sendmessage()} className='bg-purple-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><IoIosSend/></span>Send message</button>}
+        {send? <button  className='bg-orange-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><p className='loading'></p></span>Sending message</button>: <button onClick={()=>sendmessage()} className='bg-purple-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><IoIosSend/></span>Send message</button>}
       </div>
     </div>
   </div>
