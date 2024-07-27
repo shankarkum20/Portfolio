@@ -21,7 +21,7 @@ const Cont = () => {
     const sendmessage=async()=>{
     let responseData;
     Setsend(true)
-    await fetch("http://localhost:5000/api/user/sendmessage",{
+    await fetch("https://portfolio-backend-01ub.onrender.com/api/user/sendmessage",{
       method:"POST",
       headers:{
         Accept:"application/json",
