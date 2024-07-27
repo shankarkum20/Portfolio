@@ -1,11 +1,50 @@
-import React from 'react'
+import React, {  useState } from 'react'
 import contact from '../assets/contact.png'
 import map from '../assets/map.jpg'
 import { IoIosSend } from "react-icons/io";
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 const Cont = () => {
+  const [send,Setsend]=useState(false)
+  const [message,Setmessage]=useState({
+    name:"",
+    email:"",
+    message:""
+  })
+  console.log(message)
+  
+
+    const onchangehandler=(e)=>{
+      Setmessage({...message,[e.target.name]:e.target.value})
+    }
+
+    const sendmessage=async()=>{
+    let responseData
+    Setsend(true)
+    await fetch("https://portfolio-backend-01ub.onrender.com/api/user/sendmessage",{
+      method:"POST",
+      headers:{
+        Accept:"application/json",
+        
+      },
+      body:JSON.stringify(message)
+    }).then(res=>res.json())
+    .then(data=>{responseData=data})
+    if(responseData.success){
+      Setsend(false)
+      toast.success(responseData.msg)
+      navigateTo('/');
+    }
+    else{
+      Setsend(false)
+      toast.error(responseData.msg)
+    }
+  }
+
+  
+
+
   return (
     <div className=' mx-5 my-10'>
     <div className='py-5  text-white  px-4 '>
@@ -20,17 +59,17 @@ const Cont = () => {
       <div>
         <div className='mb-4'>
           <h1 className='font-semibold text-lg mb-2 text-white'>Full Name</h1>
-          <input className='bg-[#111111] border-gray-500 w-full border p-3 font-medium rounded-lg text-gray-500' type="text" name="" id="" placeholder='Enter your name ..' />
+          <input className='bg-[#111111] border-gray-500 w-full border p-3 font-medium rounded-lg text-gray-500' type="text" name="name" onChange={(e)=>onchangehandler(e)} value={message.name} id="" placeholder='Enter your name ..' />
         </div>
         <div className='mb-4'>
           <h1 className='font-semibold text-lg mb-2 text-white'>Email</h1>
-          <input className='bg-[#111111] border-gray-500 w-full border   p-3 font-medium rounded-lg text-white' type="text" name="" id="" placeholder='Enter your Email ..' />
+          <input className='bg-[#111111] border-gray-500 w-full border   p-3 font-medium rounded-lg text-white' type="text" name="email" onChange={(e)=>onchangehandler(e)} value={message.email} id="" placeholder='Enter your Email ..' />
         </div>
         <div>
           <h1 className='font-semibold text-lg mb-2 text-white'> Message</h1>
-          <textarea name="" id="" cols="30" rows='5' className='bg-[#111111] border-gray-500 w-full outline-4 text-gray-500 border p-3 text-lg font-medium rounded-lg ' placeholder='Message here...' ></textarea>
+          <textarea name="message" onChange={(e)=>onchangehandler(e)} value={message.message} id="" cols="30" rows='5' className='bg-[#111111] border-gray-500 w-full outline-4 text-gray-500 border p-3 text-lg font-medium rounded-lg ' placeholder='Message here...' ></textarea>
         </div>
-        <button onClick={()=>toast.error('Something Went Wrong!! please send via email !')} className='bg-purple-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><IoIosSend/></span>Send message</button>
+        {send? <button onClick={()=>sendmessage()} className='bg-orange-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><p className='loading'></p></span>Sending message</button>: <button onClick={()=>sendmessage()} className='bg-purple-500 p-3 px-5 rounded mt-5 font-bold text-white hover:bg-orange-500 inline '><span className='inline-flex items-center mr-2'><IoIosSend/></span>Send message</button>}
       </div>
     </div>
   </div>
