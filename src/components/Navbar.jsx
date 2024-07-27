@@ -20,7 +20,7 @@ const Navbar = () => {
           {isopen?<p onClick={()=>setIsopen(false)}><IoMdClose className='text-white text-[20px]  md:text-[25px]'/></p>:<p  onClick={()=>setIsopen(true)}><GiHamburgerMenu className='text-white  text-[20px] md:text-[25px]'/></p>}
         </div>
 
-        <ul className={isopen?'fixed right-10 top-10 bg-[#333333] bg-opacity-90 p-9 text-white text-xl lg:hidden ':"hidden"} onClick={()=>setIsopen(false)}>
+        <ul className={isopen?'fixed right-10 top-10 bg-[#333333] bg-opacity-90 p-9 text-white rounded-lg text-xl lg:hidden ':"hidden"} onClick={()=>setIsopen(false)}>
         <li onClick={()=>setSelect('About')} className={select === 'About'? 'text-orange-500 ':"hover:text-yellow-300" } ><Link to={'/About'}>About</Link></li>
                 <li onClick={()=>setSelect('Resume')} className={select === 'Resume'? 'text-orange-500':"hover:text-yellow-300" }><Link to={'/Resume'}>Resume</Link></li>
                 <li onClick={()=>setSelect('Contact')} className={select === 'Contact'? 'text-orange-500':"hover:text-yellow-300" }><Link to={'/Contact'}>Contact</Link></li>

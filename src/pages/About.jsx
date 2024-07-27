@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaLaptopCode } from "react-icons/fa";
-import resume from '../assets/shankar_resume.pdf'
+import resume from '../assets/ShankarKumarResume.pdf'
 
 const About = () => {
   return (
@@ -21,7 +21,7 @@ const About = () => {
         </p>
 
         <a className='text-sm bg-purple-500 p-2 rounded-full hover:bg-orange-500 md:text-l lg:text-xl font-bold md:p-5 mr-10 ' href={resume} download="shankar_resume">Download Resume</a>
-        <a className='text-sm bg-purple-500 p-2 rounded-full hover:bg-orange-500 md:text-l lg:text-xl md:p-5 font-bold ' href='mailto:shankarkumar.sk557@gmail.com' download="shankar_resume">Contact Me</a>
+        <a className='text-sm bg-purple-500 p-2 rounded-full hover:bg-orange-500 md:text-l lg:text-xl md:p-5 font-bold ' href='mailto:shankarkumar.sk557@gmail.com' >Contact Me</a>
       </div>
       {/**************** */}
       <h1 className='font-bold text-3xl pt-5 pb-3'>What I'm Doing</h1>
