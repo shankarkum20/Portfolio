@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaLaptopCode } from "react-icons/fa";
-import resume from '../assets/ShankarKumarResume.pdf'
+import resume from '../assets/Shankar_kum.pdf'
 
 const About = () => {
   return (
