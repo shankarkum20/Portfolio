@@ -19,3 +19,23 @@ body{
     }
     
 }
+
+@media(min-width:720px){
+    .imggetrans{
+        transition: 
+        scale 0.25s ease-in,
+        opacity 0.25s ease-in,
+        filter 0.25s ease-in;
+        
+        &:hover{
+      scale:2;
+        }
+    }
+    
+    .imgbox:has(.imggetrans:hover) .imggetrans:not(:hover){
+        scale:0.8;
+        opacity: 0.8;
+        filter: blur(4px);
+    }
+    
+}

@@ -9,6 +9,7 @@ import Loginsignup from '../assets/Loginsignup.png'
 import Managerwise from '../assets/Managerwise.png'
 import starbuck from '../assets/starbuck.png'
 import chat_app from '../assets/chat_app.png'
+import { Link } from 'react-router-dom'
 const Portfo = () => {
     const [selectcategory,setSelectCategory]=useState(null)
     const category =['Web Application','Web Design']
@@ -16,51 +17,61 @@ const Portfo = () => {
       {
        "image":hms_dashboard,
        "Name":"Hospital Management system",
+       "name":"HospitalManagementsystem",
        "Category":"Web Application",
       },
       {
         "image":starbuck,
         "Name":"Starbuck",
+        "name":"Starbuck",
         "Category":"Web Design",
        },
       {
         "image":hms_user,
         "Name":"Hospital Management system User Interface",
+        "name":"HMS-User",
         "Category":"Web Application",
        },
       {
         "image":blogapp,
        "Name":"Blog Website",
+       "name":"Blog-Website",
        "Category":"Web Application",
       },
       {
       "image":Jobportal,
        "Name":"Job Portal",
+       "name":"Job-Portal",
        "Category":"Web Application",
       },
       {
         "image":Ecomerce,
-       "Name":"E-Commerce ",
+       "Name":"E-Commerce",
+       "name":"E-Commerce",
        "Category":"Web Application",
       },
       {
         "image":chat_app,
        "Name":"Chat Application",
+       "name":"Chat-Application",
        "Category":"Web Application",
       },
       {
         "image":Loginsignup,
        "Name":"Login With OTP",
+       "name":"Login-With-OTP",
        "Category":"Web Application",
       },
       {
         "image":weather,
        "Name":"Weather App",
+       "name":"Weather-App",
        "Category":"Web Application",
       },
       {
         "image":Managerwise,
        "Name":"Manager-wise",
+       "name":"Manager-wise",
        "Category":"Web Design",
       }
 
@@ -88,14 +99,14 @@ const Portfo = () => {
     
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 my-14 text-center   '> 
       {fildata.map((item,index) =>{
-        return <div key={index} className=''>
+        return <Link to={`/Portfolio/${item.name}`} key={index} className=''>
           <div className='mb-3 flex justify-center'>
           <img className=' w-[300px]  md:w-full' src={item.image} alt="" />
           </div>
           <h1 className='text-sm md:text-xl font-semibold text-white'>{item.Name}</h1>
           <p className='text-gray-300 text-l'>{item.Category}</p>
           
-        </div>
+        </Link>
       
       })
       }

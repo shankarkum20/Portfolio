@@ -7,6 +7,7 @@ import About from './pages/About.jsx'
 import Resume from './pages/Resume.jsx'
 import Cont from './pages/Cont.jsx'
 import Portfo from './pages/Portfo.jsx'
+import Singleportfolio from './pages/Singleportfolio.jsx'
 
 const router =createBrowserRouter([
   {
@@ -32,6 +33,10 @@ children:[
   {
     path:'/Contact',
     element:<Cont/>
+  },
+  {
+    path:'/Portfolio/:Name',
+    element:<Singleportfolio/>
   }]
   }
 ])

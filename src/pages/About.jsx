@@ -101,6 +101,24 @@ const About = () => {
           <div className=''><h1 className='font-bold'>MongoDb</h1>
           </div>
         </div>
+        {/***************** */}
+        <div className='bg-[#333333]  rounded-[calc(1.5rem-1px)] p-8 flex flex-col items-center justify-center gap-3 shadow-lg shadow-gray-700/50 flex-wrap '>
+        <div className=' '>
+          <FaLaptopCode className='text-[35px]'/>
+          </div> 
+          <div className=''><h1 className='font-bold'>Git</h1>
+          </div>
+        </div>
+         {/***************** */}
+         <div className='bg-[#333333]  rounded-[calc(1.5rem-1px)] p-8 flex items-center justify-center gap-3 shadow-lg shadow-gray-700/50 flex-wrap '>
+        <div className=' '>
+          <FaLaptopCode className='text-[35px]'/>
+          </div> 
+          <div className=''><h1 className='font-bold'>Socket Io</h1>
+          </div>
+        </div>
+
+
 
       </div>
 

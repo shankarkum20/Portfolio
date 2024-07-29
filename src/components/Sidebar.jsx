@@ -86,8 +86,8 @@ const Sidebar = () => {
       </div>
 
       <div className='hidden   md:grid grid-cols-3 gap-10 text-2xl text-white mt-6'>
-        <a href="#"><FaGithub/></a>
-        <a href="#"><FaLinkedin/></a>
+        <a href="https://github.com/shankarkum20"><FaGithub/></a>
+        <a href="https://www.linkedin.com/in/shankar-kumar-7b4b4519a/"><FaLinkedin/></a>
         <a href="#"><FaSquareXTwitter/></a>
       </div>
 
